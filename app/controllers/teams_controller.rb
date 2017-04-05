@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :authenticate_user! , only: [:new]
   def index
     @teams =Team.all
   end
