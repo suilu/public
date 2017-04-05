@@ -8,12 +8,13 @@ class TeamsController < ApplicationController
   end
   def show
     @team = Team.find(params[:id])
+    @project = @team.projects
   end
 
   def create
     @team = Team.new(team_params)
     @team.user = current_user
-    
+
     if @team.save
     redirect_to teams_path
   else
