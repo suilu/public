@@ -1,0 +1,14 @@
+<%= form_for @team do |f| %>
+<% if @team.errors.any? %>
+<ul>
+<% @team.errors.full_messages.each do |msg| %>
+<li><%= "请填写团队或者公司的名称" %></li>
+<% end %>
+</ul>
+<% end %>
+<%= f.text_field :title %>
+<br>
+
+
+<%= f.submit "创建团队", :disable_with => 'Submiting...' %>
+<% end %>
