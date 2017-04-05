@@ -1,19 +1,11 @@
-<div class="col-md-8 text-center">
-  <div class="team">
-    <%= link_to("创建团队", new_team_path, class: "btn btn-success pull-right") %>
-  </div>
+<div class="col-md-4">
   <ul>
 
       <% @teams.each do |team| %>
 
         <li><%= link_to(team.title, team_path(team)) %></li>
 
-          <li>
-              <%= link_to("修改团队名称", edit_team_path(team), class: "btn btn-sm btn-default")%>
-              <%= link_to("删除团队", team_path(team),    class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
-          </li>
-
       <% end %>
+      <li><%= link_to("创建团队", new_team_path, class: "btn btn-success pull-right") %></li>
     </ul>
 </div>
