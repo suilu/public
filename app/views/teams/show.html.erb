@@ -3,14 +3,13 @@
   <h2><%= @team.title %></h2>
 
 <div class="project">
-    <%= link_to("新建项目", new_team_project_path(@project), class: "btn btn-success pull-right") %>
+    <%= link_to("新建项目", new_project_path(@project), class: "btn btn-success pull-right") %>
   </div>
-  <table class="table table-hover">
+  <table class="table ">
     <thead>
       <tr>
         <td>#</td>
         <td>Title</td>
-
       </tr>
     </thead>
     <tbody>

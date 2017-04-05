@@ -2,13 +2,14 @@ class TeamsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create]
   def index
     @teams =Team.all
+
   end
   def new
     @team = Team.new
   end
   def show
     @team = Team.find(params[:id])
-    @project = @team.projects
+    @projects = @team.projects
   end
 
   def create
@@ -16,7 +17,7 @@ class TeamsController < ApplicationController
     @team.user = current_user
 
     if @team.save
-    redirect_to teams_path
+    redirect_to team_path(@team)
   else
     render :new
   end
