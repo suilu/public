@@ -3,7 +3,7 @@
   <h2><%= @team.title %></h2>
 
 <div class="project">
-    <%= link_to("新建项目", new_project_path(@project), class: "btn btn-success pull-right") %>
+    <%= link_to("新建项目", new_team_project_path(@team), class: "btn btn-success pull-right") %>
   </div>
   <table class="table ">
     <thead>
@@ -16,7 +16,7 @@
       <% @projects.each do |project| %>
         <tr>
           <td>#</td>
-          <td><%= link_to(project.title, project_path(project)) %></td>
+          <td><%= link_to(project.title, team_project_path(@team)) %></td>
         </tr>
       <% end %>
     </tbody>
