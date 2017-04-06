@@ -1,18 +1,30 @@
 class TodosController < ApplicationController
-  def index
-    @project = Project.params[:id]
-    @todos = Todo.all
-  end
 
-  def show
-    @todes = Todo.find(params[:id])
-  end
+    def new
+        @project = Project.find(params[:project_id])
+        @todo = Todo.new
+    end
 
-  def new
+    def show
+        @project = Project.find(params[:team_id, params[:id]])
+      @todos = @project.todos
+    end
 
-  end
+    def create
+        @project = Project.find(params[:project_id])
+      @todo = Todo.new(todo_params)
+      @todo.project = @project
+      @todo.user = current_user
+    if  @todo.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
+    end
 
-  def create
+    private
 
-  end
+    def todo_params
+        params.require(:todo).permit(:title)
+    end
 end

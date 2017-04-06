@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
     @team.user = current_user
 
     if @team.save
-    redirect_to team_path(@team)
+    redirect_to teams_path
   else
     render :new
   end

@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   def index
+      @team = Team.find(params[:team_id])
     @projects = Project.all
   end
     def new
@@ -8,9 +9,8 @@ class ProjectsController < ApplicationController
     end
 
     def show
-
       @project = Project.find_by(team_id: params[:id])
-      @todos = @project.todos
+
     end
 
     def create
@@ -23,7 +23,14 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
+    end
 
+    def destroy
+      @team = Team.find(params[:team_id])
+        @project = Project.find_by(team_id: params[:id])
+        @project.destroy
+        flash[:alert] = "Group deleted"
+        redirect_to team_path(@team)
     end
 
     private
