@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+    devise_for :users
+    resources :projects do
+        resources :comments
+    end
 
-  resources :projects
 
-  resources :teams do
-    resources :projects
-  end
-  root 'teams#index'
+    resources :teams do
+        resources :projects do
+            resources :comments
+        end
+    end
+    root 'teams#index'
 end
