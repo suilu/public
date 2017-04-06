@@ -6,9 +6,11 @@ class ProjectsController < ApplicationController
       @team = Team.find(params[:team_id])
         @project = Project.new
     end
+
     def show
-      
-      @project = Project.find(params[:id])
+
+      @project = Project.find_by(team_id: params[:id])
+      @todos = @project.todos
     end
 
     def create
