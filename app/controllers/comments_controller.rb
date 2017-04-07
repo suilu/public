@@ -7,14 +7,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @team = Team.find(params[:team_id])
+
       @project = Project.find(params[:project_id])
       @comment = @project.comments.new(comment_params)
       @comment.user = current_user
 
       respond_to do |format|
         if @comment.save
-          format.html { redirect_to team_path(@team), notice: 'Comment was successfully created.' }
+          format.html { redirect_to :back, notice: '发表评论成功！' }
           format.json { render json: @comment, status: :created, location: @comment }
         else
           format.html { render action: "new" }
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back, notice: '发表评论成功!' }
+      format.html { redirect_to :back, alert: '删除评论成功！' }
       format.json { head :no_content }
     end
   end
