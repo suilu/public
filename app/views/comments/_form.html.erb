@@ -1,0 +1,8 @@
+
+<%= simple_form_for([@project, @project.comments.build]) do |f|%>
+
+  <div class="field">
+      <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.submit "添加评论", class: "btn btn-success" %>
+<% end %>

@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
       @team = Team.find(params[:team_id])
-    @projects = Project.all
+      @projects = Project.all
   end
     def new
       @team = Team.find(params[:team_id])
@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
 
     def show
       @project = Project.find_by(team_id: params[:id])
-
     end
 
     def create
