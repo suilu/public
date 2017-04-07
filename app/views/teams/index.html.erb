@@ -5,7 +5,7 @@
                 <a href="/teams/new">新建项目</a>
             </div>
             <div class="projectList2 ">
-                <ul class="nav navbar">
+                <ul class="nav navbar1">
                     <% @teams.each do |team| %>
                     <hr>
                     <li><%= link_to(team.title, team_path(team)) %></li>

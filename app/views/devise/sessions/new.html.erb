@@ -1,15 +1,62 @@
-<h2>Log in</h2>
+<body class="container">
+    <div class="project">
+        <h1>tower</h1>
+        <div class="projecttable">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+                <%= f.input :email, required: false, autofocus: true %>
+                <%= f.input :password, required: false %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+            <div class="form-actions">
+                <%= f.button :submit, "登录", class: "btn btn-primary" %>
+            </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background-color: rgb(244, 247, 237);
+    }
+    .project {
+        margin: 60px auto;
+        width: 300px;
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+    }
+    h1 {
+        color: rgb(132, 160, 151);
+        font-size: 80px;
+        font-weight: bold;
+        margin: 10px 30px;
+    }
+    .projecttable {
+        background-color: #fff;
+        margin-top: 50px;
+    
+        width: 380px;
+        padding: 20px 40px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(219, 223, 214);
+    }
+    .btn{
+        background-color: rgb(150, 184, 70);
+        border-style: none;
+        width: 300px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .btn:focus,
+    .btn:hover {
+        background-color: rgb(150, 184, 70);
+        border-style: none;
+        width: 300px;
+        height: 50px;
+        font-size: 20px;
+    }
 
-<%= render "devise/shared/links" %>
+
+</style>
