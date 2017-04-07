@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <ul>
+
+      <% @teams.each do |team| %>
+
+        <li><%= link_to(team.title, team_path(team)) %></li>
+
+      <% end %>
+      <li><%= link_to("新建项目", new_team_path, class: "btn btn-success pull-right") %></li>
+    </ul>
+</div>

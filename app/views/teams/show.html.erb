@@ -1,0 +1,24 @@
+<div class="col-md-12">
+
+  <h2><%= @team.title %></h2>
+
+<div class="project">
+    <%= link_to("添加新任务", new_team_project_path(@team), class: "btn btn-success pull-right") %>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>任务</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(project.title, team_project_path(@team)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
