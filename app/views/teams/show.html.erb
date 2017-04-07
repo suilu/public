@@ -1,39 +1,70 @@
 <body class="container">
     <div class="project">
-        <h2><%= @team.title %></h2>
-        <a href="/teams/new">添加新任务</a>
-            <%= link_to("添加新任务", new_team_project_path(@team), class: "btn btn-success pull-right") %>
+        <div class="projectList1">
+            <h2><%= @team.title %></h2>
+            <hr>
+        </div>
+        <div class="projectList2">
+
         <table class="table">
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>任务</td>
+
+                    <td><h4>任务</h4></td>
                 </tr>
             </thead>
             <tbody>
                 <% @projects.each do |project| %>
                 <tr>
-                    <td>#</td>
-                    <td><%= link_to(project.title, team_project_path(@team)) %></td>
+
+                    <td><h4><%= link_to(project.title, team_project_path(@team)) %></h4></td>
                 </tr>
                 <% end %>
             </tbody>
         </table>
+        <a> <%= link_to("添加新任务", new_team_project_path(@team)) %> </a>
+      </div>
     </div>
 </body>
 
 <style>
-body {
-    background-color: rgb(244, 247, 237);
-}
-.project {
-    margin: 0 auto;
-    width: 1000px;
-    height: 600px;
-    background-color: #fff;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(219, 223, 214);
+    body {
+        background-color: rgb(244, 247, 237);
+    }
+    .project {
+        margin: 0 auto;
+        width: 1000px;
+        height: 600px;
+        background-color: #fff;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(219, 223, 214);
 
-}
+    }
+    .projectList1{
+        padding-top: 3px;
+        width: 920px;
+      margin: 20px auto;
+      color: rgb(85, 85, 85);
+    }
+      .projectList1 hr{
+        margin: 0 auto;
+        border-width: 2px;
+        border-color: rgb(184,200, 203);
+      }
+    .projectList2{
+      width: 920px;
+       margin: 0 auto;
+       text-decoration: none;
+
+    }
+      .projectList2 .table h4{
+        color: #000;
+      }
+    .projectList2 a{
+      text-decoration: none;
+      color: rgb(82, 165, 172);
+
+    }
+
 </style>
