@@ -1,19 +1,47 @@
-<div class="col-md-12">
+<body class="container">
+    <div class="project">
+      <div class="projectList1">
+          <h2><%= @project.title %></h2>
 
-    <h2><%= @project.title %></h2>
-    <p><%= @project.description %></p>
 
-    <%= link_to("删除任务", "#",    class: "btn btn-danger ",method: :delete, data: { confirm: "Are you sure?" } )%>
-<div>
-    <h3 class="comments_title">
-      <%= @project.comments.count %>
-        Comments
-    </h3>
-    <hr>
-    <div id="comments">
-        <%= render @project.comments %>
-        <%= render "comments/form" %>
-
+            <hr>
+            <div id="comments">
+                <%= render @project.comments %>
+                <%= render "comments/form" %>
+            </div>
+        </div>
+        <div class="projectList2">
+          <a><%= link_to("删除任务", "#", method: :delete, data: { confirm: "Are you sure?" } )%></a>
+        </div>
     </div>
-</div>    
-</div>
+</body>
+
+<style>
+    body {
+        background-color: rgb(244, 247, 237);
+    }
+    .project {
+        margin: 0 auto;
+        width: 1000px;
+        height: 600px;
+        background-color: #fff;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(219, 223, 214);
+
+    }
+    .projectList1 {
+        padding-top: 3px;
+        width: 400px;
+        margin-top: 30px;
+        margin-left: 50px;
+        color: rgb(85, 85, 85);
+        float: left;
+    }
+    .projectList2 {
+      float: right;
+      margin-top: 100px;
+        margin-right: 60px;
+    }
+
+</style>

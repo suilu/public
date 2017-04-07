@@ -1,11 +1,70 @@
-<div class="col-md-4">
-  <ul>
+<body class="container">
+    <div class="project">
+        <div class="projectList">
+            <div class="projectList1 bg-color1">
+                <a href="/teams/new">新建项目</a>
+            </div>
+            <div class="projectList2 ">
+                <ul class="nav navbar1">
+                    <% @teams.each do |team| %>
+                    <hr>
+                    <li><%= link_to(team.title, team_path(team)) %></li>
+                    <hr>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="projectList3 ">
+                <a href="#">管理项目模板</a>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        background-color: rgb(244, 247, 237);
+    }
+    .project {
+        margin: 0 auto;
+        width: 1000px;
+        height: 600px;
+        background-color: #fff;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(219, 223, 214);
 
-      <% @teams.each do |team| %>
+    }
+    .projectList {
+        width: 950px;
+        background-color: #fff;
+        margin: 20px auto;
+    }
+    .projectList1 {
 
-        <li><%= link_to(team.title, team_path(team)) %></li>
+        height: 90px;
+    }
+    .projectList1 a {
+        margin-left: 86%;
+        text-decoration: none;
+    }
+    .projectList2 {
 
-      <% end %>
-      <li><%= link_to("新建项目", new_team_path, class: "btn btn-success pull-right") %></li>
-    </ul>
-</div>
+        height: 400px;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    .projectList2 li {}
+    .projectList3 {
+        margin: 0 auto;
+        height: 50px;
+
+    }
+    .projectList3 a {
+        text-decoration: none;
+    }
+
+    hr {
+        margin: 0 auto;
+        color: rgb(219, 223, 214);
+    }
+
+</style>
